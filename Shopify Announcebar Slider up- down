@@ -52,6 +52,7 @@
    background:{{section.settings.colorBackground}};
   color:{{section.settings.colorText}};
     text-align: center;
+    height:25px;
 }
 
 .announcebar-slick-slider {
