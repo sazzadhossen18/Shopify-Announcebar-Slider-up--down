@@ -1,0 +1,157 @@
+{%- if  section.blocks.size > 0 and section.settings.show_announcement_bar -%}
+<div class="Announcebar-slider">
+    <div class="announcebar-left-side"></div>
+  
+      <div class="announcebar-slick-slider">
+          {%- for block in section.blocks -%}
+          <div>
+          <span> {{block.settings.message}}</span>
+          </div>
+        {%- endfor -%}
+         
+      </div>
+  
+    <div class="announcebar-left-side"></div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('.announcebar-slick-slider').slick({
+                vertical: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                arrows: true,
+                prevArrow: '<div class="slick-prev-custom"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
+                nextArrow: '<div class="slick-next-custom"><i class="fa fa-angle-right" aria-hidden="true"></i></div>',
+               
+            });
+        });
+</script>
+
+<style>
+.announcebar-left-side {
+    width: 25%;
+}
+  
+ .announcebar-slick-slider{
+    width: 50%;
+    
+} 
+
+.Announcebar-slider {
+    display: flex;
+     justify-content: space-between;
+    align-items: center;
+    align-content: center;
+   background:{{section.settings.colorBackground}};
+  color:{{section.settings.colorText}};
+    text-align: center;
+}
+
+.announcebar-slick-slider {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+
+.slick-prev-custom.slick-arrow {
+    display: block;
+    line-height: 1;
+    font-size: 34px;
+    letter-spacing: 0;
+    cursor: pointer;
+    
+    top: 50%!important;
+    padding: 0;
+    width: 20px;
+    /* height: 40px; */
+    /* transform: translateY(-50%); */
+    z-index: 1;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+  
+.slick-next-custom.slick-arrow {
+    display: block;
+    line-height: 1;
+    font-size: 34px;
+    letter-spacing: 0;
+    cursor: pointer;
+    /* position: absolute; */
+    top: 50%!important;
+    padding: 0;
+    width: 20px;
+    /* height: 40px; */
+    /* transform: translateY(-50%); */
+    z-index: 1;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+
+
+  
+
+</style>
+{%- endif -%}
+
+
+
+{% schema %}
+  {
+    "name": "Announcement Bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_announcement_bar",
+        "label": "Show"
+      },
+      
+      {
+        "type": "color",
+        "id": "colorBackground",
+        "label": "Background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "colorText",
+        "label": "Text color",
+        "default": "#000"
+      }
+],
+"blocks": [
+      {
+        "type": "header",
+        "name": "Message",
+        "settings": [
+{
+              "id": "message",
+              "type": "textarea",
+             "label": "Message"
+            }
+        ]
+      }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
